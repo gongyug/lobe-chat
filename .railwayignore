@@ -1,0 +1,9 @@
+# Ignore all packages - this is a monorepo with one main app
+# Prevents Railway from creating multiple services
+packages/*/
+apps/desktop/
+
+# Also ignore common dirs
+node_modules/
+.next/
+.git/

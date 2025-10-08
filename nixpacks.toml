@@ -1,6 +1,10 @@
 # Nixpacks configuration for Railway deployment
+# This is a monorepo but should be deployed as a SINGLE service
+
 [phases.setup]
 nixPkgs = ["nodejs_20", "pnpm"]
+# Set working directory to root (prevents multi-service detection)
+cwd = "."
 
 [phases.install]
 cmds = ["pnpm install --frozen-lockfile"]
