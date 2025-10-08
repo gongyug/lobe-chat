@@ -1,15 +1,15 @@
 # Nixpacks configuration for Railway deployment
-# This is a monorepo but should be deployed as a SINGLE service
+# Forces Railway to treat monorepo as SINGLE service
 
 [phases.setup]
 nixPkgs = ["nodejs_20", "pnpm"]
-# Set working directory to root (prevents multi-service detection)
-cwd = "."
 
 [phases.install]
+# Use monorepo-aware install
 cmds = ["pnpm install --frozen-lockfile"]
 
 [phases.build]
+# Build from root directory
 cmds = ["pnpm run build"]
 
 [start]
@@ -17,3 +17,7 @@ cmd = "pnpm start"
 
 [variables]
 SKIP_ENV_VALIDATION = "1"
+
+# Override package.json detection to prevent multi-service
+[providers]
+pnpm = { version = "9.x" }

@@ -1,3 +1,4 @@
+# Railway V2 Configuration - SINGLE SERVICE ONLY
 [build]
 builder = "NIXPACKS"
 
@@ -7,3 +8,8 @@ numReplicas = 1
 sleepApplication = false
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
+
+# CRITICAL: Disable monorepo detection
+# Railway should treat this as a single app, not multiple services
+[experimental]
+incrementalBuilds = false

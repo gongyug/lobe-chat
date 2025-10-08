@@ -1,0 +1,12 @@
+{
+  "name": "@lobehub/chat",
+  "version": "1.135.5",
+  "private": true,
+  "scripts": {
+    "build": "pnpm install && pnpm run build",
+    "start": "next start -p 3210"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
